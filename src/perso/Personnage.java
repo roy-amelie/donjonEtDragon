@@ -1,5 +1,5 @@
 package perso;
-public class Personnage {
+public abstract class Personnage {
 	
 	protected String name;
 	protected String image;

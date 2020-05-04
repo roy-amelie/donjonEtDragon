@@ -2,7 +2,6 @@ package donjonEtDragon;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-
 import perso.Personnage;
 import perso.Warrior;
 import perso.Wizard;
@@ -16,7 +15,7 @@ public class SaisiePersonnage {
 	static final String GUERRIER="guerrier";
 	static final String MAGICIEN = "magicien";
 
-	ArrayList<Personnage> persoList = new ArrayList<>();
+	ArrayList<Personnage> persoList = new ArrayList<Personnage>();
 	String choice="";
 	Scanner sc = new Scanner(System.in);
 
@@ -69,7 +68,7 @@ public class SaisiePersonnage {
 			modifyperso.setLevelOfLife(changeAtt);
 			sc.nextLine();
 		}
-			
+		
 		System.out.println("Souhaitez-vous créer un autre personage ? o/n");
 		String res = sc.nextLine().toLowerCase();
 		if (res.equals("o")) {
@@ -96,7 +95,7 @@ public class SaisiePersonnage {
 	 * method to enter the info of the new perso
 	 * @param choice perso between wizard and warrior
 	 */
-	private void saisieInfoPersonage(String choice) {
+	public void saisieInfoPersonage(String choice) {
 		String persoName = saisieName();
 		String persoImage= saisieImage();
 		int persoLife = saisiePersoLife();

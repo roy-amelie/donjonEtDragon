@@ -8,6 +8,7 @@ public class Wizard extends Personnage{
 	private Spell spell;
 	private String philtre;
 
+	
 	/**
 	 * wizard constructor
 	 * @param name
