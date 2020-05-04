@@ -2,14 +2,19 @@ package specificitePerso;
 
 public class Weapon {
 	// Characteristic weapon
-	private String weaponName;
-	private int weaponAttackLevel;
+	private String weaponName = "toto";
+	private int weaponAttackLevel= 5;
 
 	//constructor
-	public Weapon(String weaponName2, int weaponForce) {
-		this.weaponAttackLevel = weaponForce;
-		this.weaponName = weaponName2;
+	public Weapon() {
+		this.setWeaponAttackLevel(weaponAttackLevel);
+		this.setWeaponName(weaponName);
 	};
+
+	@Override
+	public String toString() {
+		return "[weaponName=" + weaponName + ", weaponAttackLevel=" + weaponAttackLevel + "]";
+	}
 
 	/**
 	 * 
@@ -37,10 +42,10 @@ public class Weapon {
 
 	/**
 	 * 
-	 * @param weaponAttackLeve
+	 * @param weaponAttackLevel2
 	 */
-	public void setWeaponAttackLeve(int weaponAttackLeve) {
-		this.weaponAttackLevel= weaponAttackLeve;
+	public void setWeaponAttackLevel(int weaponAttackLevel2) {
+		this.weaponAttackLevel= weaponAttackLevel2;
 	}
 
 }

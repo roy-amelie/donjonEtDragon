@@ -41,6 +41,12 @@ public class Personnage {
 		return attackForce;
 	}
 
+	@Override
+	public String toString() {
+		return "[name=" + name + ", image=" + image + ", levelOfLife=" + levelOfLife + ", attackForce="
+				+ attackForce + "]";
+	}
+
 	public void setAttackForce(int attackForce) {
 		this.attackForce = attackForce;
 	}
