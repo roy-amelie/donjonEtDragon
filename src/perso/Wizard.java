@@ -29,10 +29,24 @@ public class Wizard extends Personnage{
 	public void setPhiltre(String philtre) {
 		this.philtre = philtre;
 	}
+	
+	@Override
+	public void setEquipementDef(String name) {
+		this.setPhiltre(name);	
+	}
+	
+	@Override
+	public void setEquipementAtt(String weaponName, int weaponLevel) {
+		// TODO Auto-generated method stub
+		this.spell.setSpellName(weaponName);
+		this.spell.setSpellAttackLevel(weaponLevel);
+	}
 
 	@Override
 	public String toString() {
 		return "Wizard "+ super.toString()+", spell=" + spell + ", philtre=" + philtre + "]";
 	}
+
+	
 	
 }

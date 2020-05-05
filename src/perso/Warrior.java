@@ -28,6 +28,18 @@ public class Warrior extends Personnage {
 	public void setShield(String shield) {
 		this.shield = shield;
 	}
+	
+	@Override
+	public void setEquipementDef(String Shield) {
+		this.setShield(shield);
+		
+	}
+
+	@Override
+	public void setEquipementAtt(String weaponName, int weaponLevel) {
+		this.weapon.setWeaponName(weaponName);
+		this.weapon.setWeaponAttackLevel(weaponLevel);
+	}
 
 	@Override
 	public String toString() {

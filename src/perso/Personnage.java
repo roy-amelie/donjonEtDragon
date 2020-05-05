@@ -40,7 +40,9 @@ public abstract class Personnage {
 	public int getAttackForce() {
 		return attackForce;
 	}
-
+	
+	abstract void setEquipementDef(String name);
+	
 	@Override
 	public String toString() {
 		return "[name=" + name + ", image=" + image + ", levelOfLife=" + levelOfLife + ", attackForce="
@@ -49,6 +51,11 @@ public abstract class Personnage {
 
 	public void setAttackForce(int attackForce) {
 		this.attackForce = attackForce;
+	}
+
+	void setEquipementAtt(String weaponName, int weaponLevel) {
+		// TODO Auto-generated method stub
+		
 	}
 }
 

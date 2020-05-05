@@ -2,6 +2,7 @@ package donjonEtDragon;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 import perso.Personnage;
@@ -9,33 +10,46 @@ import perso.Warrior;
 import perso.Wizard;
 
 /**
- * class for create perso
+ * class for create personage
  * 
  *
  */
 public class SaisiePersonnage {
-	
+
 	static final String GUERRIER="guerrier";
 	static final String MAGICIEN = "magicien";
-	
+
 	static final String  SAISIE_LIFE ="le niveau de vie";
 	static final int LIFE_MINIMUM = 5;
 	static final int LIFE_MAXIMUM = 10;
-	
+
 	static final String  SAISIE_ATTACK ="la force d'attaque";
 	static final int ATTACK_MINIMUM = 5;
 	static final int ATTACK_MAXIMUM = 10;
-	
+
 	static final String SAISIE_IMAGE = "entrer le liens de l'image :";
-	
+
 	static final String SAISIE_NAME= "choisissez son nom:";
+
+	static final String SAISIE_SHIELD = "entrer le nom du bouclier";
+	static final String  SAISIE_WEAPON_NAME ="le nom de l'arme";
+	static final String  SAISIE_WEAPON_ATT ="l'attaque de l'arme";
+	static final int WEAPON_MINIMUM = 5;
+	static final int WEAPON_MAXIMUM = 10;
 	
+	static final String SAISIE_PHILTRE = "entrer le nom du philtre";
+	static final String SAISIE_SPELL_NAME = "le nom du sort";
+	static final String SAISIE_SPELL_ATT = "l'attaque du sort";
+	static final int SPELL_MINIMUM = 5 ;
+	static final int SPELL_MAXIMUM = 10;
+
 	ArrayList<Personnage> persoList = new ArrayList<Personnage>();
 	String choice="";
 
 	Scanner sc = new Scanner(System.in);
+
 	/**
-	 * method for see all the perso
+	 * method for see all the personage
 	 */
 	private void seePerso() {
 		for (int i = 0; i < persoList.size(); i++) {
@@ -52,7 +66,11 @@ public class SaisiePersonnage {
 			changePerso(id);
 		}
 	}
-
+	
+	/**
+	 * method to modify one personage with the id
+	 * @param id
+	 */
 	private void changePerso(int id) {
 		Personnage modifyperso = persoList.get(id);
 		System.out.println(modifyperso);
@@ -74,14 +92,41 @@ public class SaisiePersonnage {
 		if (sc.nextLine().toLowerCase().equals("o")) {
 			int changeLife = saisiePersoInt(SAISIE_LIFE, LIFE_MINIMUM, LIFE_MAXIMUM);
 			modifyperso.setLevelOfLife(changeLife);
-			sc.nextLine();
 		}
 
 		System.out.println("la force d'attaque ? o/n");
 		if (sc.nextLine().toLowerCase().equals("o")) {
 			int changeAtt = saisiePersoInt(SAISIE_ATTACK, ATTACK_MINIMUM, ATTACK_MAXIMUM);
-			modifyperso.setLevelOfLife(changeAtt);
-			sc.nextLine();
+			modifyperso.setAttackForce(changeAtt);
+		}
+
+		if(modifyperso instanceof Warrior) {
+
+			System.out.println("le nom du bouclier? o/n");
+			if (sc.nextLine().toLowerCase().equals("o")) {
+				String changeShield = saisieString(SAISIE_SHIELD);
+				((Warrior) modifyperso).setEquipementDef(changeShield);
+			}
+
+			System.out.println("l'equipement d'attaque? o/n");
+			if (sc.nextLine().toLowerCase().equals("o")) {
+				String changeWeaponName = saisieString(SAISIE_WEAPON_NAME);
+				int changeWeaponForce = saisiePersoInt(SAISIE_WEAPON_ATT, WEAPON_MINIMUM, WEAPON_MAXIMUM);
+				((Warrior) modifyperso).setEquipementAtt(changeWeaponName, changeWeaponForce);
+			}
+		} else {
+			System.out.println("le nom du philtre? o/n");
+			if (sc.nextLine().toLowerCase().equals("o")) {
+				String changePhiltre = saisieString(SAISIE_PHILTRE);
+				((Wizard) modifyperso).setEquipementDef(changePhiltre);
+			}
+
+			System.out.println("l'equipement d'attaque? o/n");
+			if (sc.nextLine().toLowerCase().equals("o")) {
+				String changeSpellName = saisieString(SAISIE_SPELL_NAME);
+				int changeSpellForce = saisiePersoInt(SAISIE_SPELL_ATT,SPELL_MINIMUM, SPELL_MAXIMUM);
+				((Wizard) modifyperso).setEquipementAtt(changeSpellName, changeSpellForce);
+			}
 		}
 
 		System.out.println("Souhaitez-vous créer un autre personage ? o/n");
@@ -94,7 +139,7 @@ public class SaisiePersonnage {
 	}
 
 	/**
-	 * method to choice new perso between wizard or warrior
+	 * method to choice new personage between wizard or warrior
 	 */
 	public void choicePersonage() {
 		System.out.println("souhaitez-vous créer un guerrier ou un magicien ?");
@@ -107,8 +152,8 @@ public class SaisiePersonnage {
 	}
 
 	/**
-	 * method to enter the info of the new perso
-	 * @param choice perso between wizard and warrior
+	 * method to enter the info of the new personage
+	 * @param choice personage between wizard and warrior
 	 */
 	public void saisieInfoPersonage(String choice) {
 		String persoName = saisieString(SAISIE_NAME);
@@ -142,7 +187,7 @@ public class SaisiePersonnage {
 	}
 
 	/**
-	 *  method to create a new warrior and add it to arrayList
+	 *  method to create a new wizard and add it to arrayList
 	 * @param persoName
 	 * @param persoImage
 	 * @param persoLife
@@ -153,8 +198,11 @@ public class SaisiePersonnage {
 	}
 
 	/**
-	 * method to choice life
-	 * @return life
+	 * method to choice all integer (life or attack)
+	 * @param typeChoice (text message for print)
+	 * @param min 
+	 * @param max
+	 * @return integer
 	 */
 	private int saisiePersoInt(String typeChoice, int min, int max) { 
 		int persoInt; 
@@ -162,7 +210,7 @@ public class SaisiePersonnage {
 			System.out.println("choisissez "+ typeChoice+" entre "+min+" et "+max); 
 			persoInt=sc.nextInt();
 			sc.nextLine();
-			if(persoInt<5 || persoInt>10) {
+			if(persoInt<min || persoInt>max) {
 				saisiePersoInt(typeChoice, min, max);
 			}; 
 			return persoInt; 
@@ -170,17 +218,22 @@ public class SaisiePersonnage {
 			System.out.println("vous n'avez pas rentré un monbre entier"); 
 			sc.nextLine();
 			return saisiePersoInt(typeChoice, min, max); 
-		} 
+		} catch (NoSuchElementException e) {
+			System.out.println("vous n'avez rien rentré"); 
+			sc.nextLine();
+			return saisiePersoInt(typeChoice, min, max);
+		}
 	}
 
 	/**
-	 * method to choice image
-	 * @return image
+	 * method to choice all String (picture or name)
+	 * @param typeChoice (text message for print)
+	 * @return String
 	 */
 	private String saisieString(String typeChoice) {
 		System.out.println(typeChoice);
-		String persoImage= sc.nextLine();
-		return persoImage;
+		String persoString= sc.nextLine();
+		return persoString;
 	}
 
 }
