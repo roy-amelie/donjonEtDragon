@@ -1,5 +1,6 @@
 package specificitePerso;
 
+
 public class Spell {
 	// Characteristic spell
 	private String spellName= "tutu";

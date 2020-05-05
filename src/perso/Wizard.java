@@ -1,6 +1,11 @@
 package perso;
 import specificitePerso.Spell;
 
+/**
+ * 
+ * child class of personage
+ *
+ */
 public class Wizard extends Personnage{
 	
 	static final String PHILTRE_NAME = "super philtre";

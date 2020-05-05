@@ -1,4 +1,10 @@
 package perso;
+
+/**
+ * 
+ * parent abstract class for wizard and warrior
+ *
+ */
 public abstract class Personnage {
 	
 	protected String name;

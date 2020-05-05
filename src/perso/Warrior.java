@@ -1,6 +1,11 @@
 package perso;
 import specificitePerso.Weapon;
 
+/**
+ * child class of personage
+ * 
+ *
+ */
 public class Warrior extends Personnage {
 	
 	static final String SHIELD_NAME = "super bouclier";
