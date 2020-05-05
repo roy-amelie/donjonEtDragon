@@ -9,6 +9,8 @@ import specificitePerso.Spell;
 public class Wizard extends Personnage{
 	
 	static final String PHILTRE_NAME = "super philtre";
+
+	private String labelEquipementAtt = "choisissez un nom pour le sort";
 	
 	private Spell spell;
 	private String philtre;
@@ -50,6 +52,17 @@ public class Wizard extends Personnage{
 	@Override
 	public String toString() {
 		return "Wizard "+ super.toString()+", spell=" + spell + ", philtre=" + philtre + "]";
+	}
+
+	@Override
+	public String getTypeEquipementAtt() {
+		
+		return this.getLabelEquipementAtt();
+	}
+
+	private String getLabelEquipementAtt() {
+		// TODO Auto-generated method stub
+		return labelEquipementAtt;
 	}
 
 	

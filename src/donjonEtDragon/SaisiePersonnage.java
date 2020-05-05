@@ -36,7 +36,7 @@ public class SaisiePersonnage {
 	static final String  SAISIE_WEAPON_ATT ="l'attaque de l'arme";
 	static final int WEAPON_MINIMUM = 5;
 	static final int WEAPON_MAXIMUM = 10;
-	
+
 	static final String SAISIE_PHILTRE = "entrer le nom du philtre";
 	static final String SAISIE_SPELL_NAME = "le nom du sort";
 	static final String SAISIE_SPELL_ATT = "l'attaque du sort";
@@ -66,7 +66,7 @@ public class SaisiePersonnage {
 			changePerso(id);
 		}
 	}
-	
+
 	/**
 	 * method to modify one personage with the id
 	 * @param id
@@ -100,33 +100,17 @@ public class SaisiePersonnage {
 			modifyperso.setAttackForce(changeAtt);
 		}
 
-		if(modifyperso instanceof Warrior) {
+		System.out.println("le nom l'equipement de defence ? o/n");
+		if (sc.nextLine().toLowerCase().equals("o")) {
+			String changeShield = saisieString(SAISIE_SHIELD);
+			((Warrior) modifyperso).setEquipementDef(changeShield);
+		}
 
-			System.out.println("le nom du bouclier? o/n");
-			if (sc.nextLine().toLowerCase().equals("o")) {
-				String changeShield = saisieString(SAISIE_SHIELD);
-				((Warrior) modifyperso).setEquipementDef(changeShield);
-			}
-
-			System.out.println("l'equipement d'attaque? o/n");
-			if (sc.nextLine().toLowerCase().equals("o")) {
-				String changeWeaponName = saisieString(SAISIE_WEAPON_NAME);
-				int changeWeaponForce = saisiePersoInt(SAISIE_WEAPON_ATT, WEAPON_MINIMUM, WEAPON_MAXIMUM);
-				((Warrior) modifyperso).setEquipementAtt(changeWeaponName, changeWeaponForce);
-			}
-		} else {
-			System.out.println("le nom du philtre? o/n");
-			if (sc.nextLine().toLowerCase().equals("o")) {
-				String changePhiltre = saisieString(SAISIE_PHILTRE);
-				((Wizard) modifyperso).setEquipementDef(changePhiltre);
-			}
-
-			System.out.println("l'equipement d'attaque? o/n");
-			if (sc.nextLine().toLowerCase().equals("o")) {
-				String changeSpellName = saisieString(SAISIE_SPELL_NAME);
-				int changeSpellForce = saisiePersoInt(SAISIE_SPELL_ATT,SPELL_MINIMUM, SPELL_MAXIMUM);
-				((Wizard) modifyperso).setEquipementAtt(changeSpellName, changeSpellForce);
-			}
+		System.out.println("l'equipement d'attaque? o/n");
+		if (sc.nextLine().toLowerCase().equals("o")) {
+			String changeWeaponName = saisieString(modifyperso.getTypeEquipementAtt());
+			int changeWeaponForce = saisiePersoInt(SAISIE_WEAPON_ATT, WEAPON_MINIMUM, WEAPON_MAXIMUM);
+			((Warrior) modifyperso).setEquipementAtt(changeWeaponName, changeWeaponForce);
 		}
 
 		System.out.println("Souhaitez-vous créer un autre personage ? o/n");
