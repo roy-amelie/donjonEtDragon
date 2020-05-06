@@ -5,6 +5,7 @@ import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
+import boardGame.BoardGame;
 import perso.Personnage;
 import perso.Warrior;
 import perso.Wizard;
@@ -151,10 +152,18 @@ public class SaisiePersonnage {
 			createWarrior(persoName, persoImage, persoLife, attack);
 		}
 		sc.nextLine();
+		
+		/*================start game =====================*/
+		PlayGame play = new PlayGame();
+		play.start(persoList.get(0));
 		System.out.println("Souhaitez-vous créer un autre personage ? o/n");
 		if (sc.nextLine().toLowerCase().equals("o")) {
 			choicePersonage();
 		} else {
+			System.out.println("souhaitez vous jouer ? o/n");
+			if (sc.nextLine().toLowerCase().equals("o")) {
+				
+			}
 			seePerso();
 		}
 	}

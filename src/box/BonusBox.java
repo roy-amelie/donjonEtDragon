@@ -1,7 +1,10 @@
 package box;
 
+import perso.Personnage;
+
 public abstract class BonusBox extends GameBox{
 	/*========================declaration=================*/
+	private String eventname;
 	private String event;
 	
 
@@ -18,7 +21,7 @@ public abstract class BonusBox extends GameBox{
 
 	/*========================method====================*/
 	@Override
-	public abstract String event();
+	public abstract void event(Personnage perso);
 	
 	@Override
 	public String toString() {

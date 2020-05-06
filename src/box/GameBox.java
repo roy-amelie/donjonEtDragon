@@ -1,5 +1,7 @@
 package box;
 
+import perso.Personnage;
+
 public abstract class GameBox {
 
 	/* ==============declarations============*/
@@ -7,22 +9,20 @@ public abstract class GameBox {
 
 	/* ==============Constructor============*/
 	public GameBox() {
-		this.setName(name);
+		this.setEventName(name);
 	}
 
 	/* ==============getter/setter============*/
-	public String getName() {
+	public String getEventName() {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setEventName(String name) {
 		this.name = name;
 	}
 
 	/* ==============method============*/
-	public abstract String event();
-
-
+	public abstract void event(Personnage perso);
 
 	/*===================toString==================*/
 	@Override

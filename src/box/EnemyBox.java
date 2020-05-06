@@ -1,9 +1,11 @@
 package box;
 
+import perso.Personnage;
+
 public abstract class EnemyBox extends GameBox{
 	/*========================declaration=================*/
 	private String event;
-	private String name="attention à l'ennemi";
+	private String eventName;
 	
 	/*========================constructor=================*/
 	public EnemyBox() {
@@ -17,7 +19,7 @@ public abstract class EnemyBox extends GameBox{
 
 	/*========================method=================*/
 	@Override
-	public abstract String event() ;
+	public abstract void event(Personnage perso) ;
 
 	@Override
 	public String toString() {

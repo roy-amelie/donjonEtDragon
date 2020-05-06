@@ -10,6 +10,7 @@ import box.GoblinBox;
 import box.OrcBox;
 import box.SuperTreasureBox;
 import box.TreasureBox;
+import perso.Personnage;
 
 public class BoardGame {
 		
@@ -17,7 +18,7 @@ public class BoardGame {
 	
 	ArrayList<GameBox> boardGame= new ArrayList<GameBox>();
 	
-	public void fillTheList() {
+	public ArrayList<GameBox> fillTheList() {
 		for (int i = 0; i < BOARD_GAME_SIZE; i++) {
 			int n = (int) (Math.random()*3);
 			if (n==0) {
@@ -29,6 +30,7 @@ public class BoardGame {
 			}
 		}
 		viewList();
+		return boardGame;
 	}
 	
 	private GameBox createEnemyBox() {
@@ -52,8 +54,10 @@ public class BoardGame {
 	private void viewList() {
 		 for (int i=0; i < boardGame.size(); i++){
 			 GameBox box = boardGame.get(i);
-			 System.out.println(box.event());
+			 System.out.println(box.getEventName());
 		 }
 	}
+	
+
 
 }

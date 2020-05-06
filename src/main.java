@@ -10,11 +10,11 @@ import donjonEtDragon.SaisiePersonnage;
 public class main {
 	public static void main(String[] args) {
 		/*===============entrée pour saisie perso==========*/
-		//SaisiePersonnage saisie = new SaisiePersonnage();
-		//saisie.choicePersonage();
+		SaisiePersonnage saisie = new SaisiePersonnage();
+		saisie.choicePersonage();
 		
 		/*===============entrée pour create boardgame==========*/
-		BoardGame game = new BoardGame();
-		game.fillTheList();
+		//BoardGame game = new BoardGame();
+		//game.fillTheList();
 	}
 }

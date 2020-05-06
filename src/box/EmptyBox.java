@@ -1,8 +1,10 @@
 package box;
 
+import perso.Personnage;
+
 public class EmptyBox extends GameBox {
 	/* ==============Declaration============*/
-	private String event = "cette case est vide";
+	private String eventName = "cette case est vide";
 	private String name = "cette case est vide" ;
 	
 	/* ==============Constructor============*/
@@ -11,13 +13,13 @@ public class EmptyBox extends GameBox {
 	}
 	
 	/* ==============getter/setter============*/
-	public String getEvent() {
-		return event;
+	public String getEventName() {
+		return eventName;
 	}
 	/* ==============parent method============*/
 	@Override
-	public String event() {
-		return event;
+	public void event(Personnage perso) {
+		
 	}
 
 	@Override
