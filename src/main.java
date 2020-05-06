@@ -1,4 +1,5 @@
 
+import boardGame.BoardGame;
 import donjonEtDragon.SaisiePersonnage;
 
 /**
@@ -8,7 +9,12 @@ import donjonEtDragon.SaisiePersonnage;
  */
 public class main {
 	public static void main(String[] args) {
-		SaisiePersonnage saisie = new SaisiePersonnage();
-		saisie.choicePersonage();
+		/*===============entrée pour saisie perso==========*/
+		//SaisiePersonnage saisie = new SaisiePersonnage();
+		//saisie.choicePersonage();
+		
+		/*===============entrée pour create boardgame==========*/
+		BoardGame game = new BoardGame();
+		game.fillTheList();
 	}
 }
