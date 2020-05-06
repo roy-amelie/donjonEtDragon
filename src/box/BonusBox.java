@@ -1,8 +1,8 @@
 package box;
 
-public class BonusBox extends GameBox{
+public abstract class BonusBox extends GameBox{
 	/*========================declaration=================*/
-	private String event = "Bonus";
+	private String event;
 	
 
 	private String name = "cette case est un bonus" ;
@@ -18,9 +18,7 @@ public class BonusBox extends GameBox{
 
 	/*========================method====================*/
 	@Override
-	public String Event() {
-		return this.getEvent();
-	}
+	public abstract String event();
 	
 	@Override
 	public String toString() {

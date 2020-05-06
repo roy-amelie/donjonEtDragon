@@ -1,8 +1,8 @@
 package box;
 
-public class EnemyBox extends GameBox{
+public abstract class EnemyBox extends GameBox{
 	/*========================declaration=================*/
-	private String event="il y a un ennemi";
+	private String event;
 	private String name="attention à l'ennemi";
 	
 	/*========================constructor=================*/
@@ -17,14 +17,11 @@ public class EnemyBox extends GameBox{
 
 	/*========================method=================*/
 	@Override
-	String Event() {
-		// TODO Auto-generated method stub
-		return this.getEvent();
-	}
+	public abstract String event() ;
 
 	@Override
 	public String toString() {
-		return "EnemyBox [ name=" + name + "]";
+		return "EnemyBox [name=" + name + "]";
 	}
 
 }

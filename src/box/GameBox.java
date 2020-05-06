@@ -20,7 +20,7 @@ public abstract class GameBox {
 	}
 
 	/* ==============method============*/
-	abstract String Event();
+	public abstract String event();
 
 
 

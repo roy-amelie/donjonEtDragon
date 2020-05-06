@@ -16,8 +16,8 @@ public class EmptyBox extends GameBox {
 	}
 	/* ==============parent method============*/
 	@Override
-	String Event() {
-		return this.getEvent();
+	public String event() {
+		return event;
 	}
 
 	@Override
